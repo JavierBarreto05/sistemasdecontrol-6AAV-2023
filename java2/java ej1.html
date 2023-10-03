@@ -1,0 +1,29 @@
+<html>
+<head>
+    <title>hola</title>
+</head>
+<body>
+    <script languaje="javascript" type="text/javascript">
+        function calculoimc(){
+            var peso= Number(prompt("ingreso peso"))
+            var altura= Number(prompt("ingrese altura"))
+            var imc= peso/(altura * altura)
+            if (imc>30) {
+                alert("corre gordito corre");
+            }
+            else if (imc>25) {
+                alert("deja el choripan");
+            }
+            else if (imc>17.9){
+                alert("peso saludable");
+            }
+            else {
+                alert("debajo del peso");
+            }
+        }
+    </script>
+    <div>
+        <input type="button" onclick="calculoimc()" value="calculoimc">
+    </div>
+</body>
+</html>
