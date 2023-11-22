@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        var a;
+        var b;
+
+        a = prompt("Ingrese la altura");
+        b = prompt("Ingrese la base");
+
+        function hypotenuse(a, b) {
+            function square(x) { return x * x; }
+            return Math.sqrt(square(a) + square(b));
+        }
+
+        function perimetro(a, b) {
+            return a + b + hypotenuse(a, b);
+        }
+
+        function superf(a, b) {
+            return (a * b) / 2;
+        }
+
+        function fin() {
+            var hipo = hypotenuse(a, b);
+            var per = perimetro(a, b);
+            var sup = superf(a, b);
+            
+            document.write("La hipotenusa es: " + hipo + "<br>");
+            document.write("El perimetro es: " + per + "<br>");
+            document.write("La superficie es: " + sup + "<br>");
+        }
+    </script>
+
+    <form>
+        <input type="button" onclick="fin()" value="Llamar función">
+    </form>
+    <a href="index.html">index</a>
+
+</body>
+</html>

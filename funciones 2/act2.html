@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        var m;
+        var h;
+        var g = 9.8;  // Asumiendo la aceleración debida a la gravedad en la Tierra.
+
+        m = parseFloat(prompt("Ingrese la masa"));
+        h = parseFloat(prompt("Ingrese la altura"));
+
+        function energiapotencial(m, h, g) {
+            return m * g * h;
+        }
+
+        function velocidad(h, g) {
+            return Math.sqrt((2 * h * g));
+        }
+
+
+        function fin() {
+            var ep = energiapotencial(m, h, g);
+            var vel = velocidad(h, g);
+            
+            document.write("La energía potencial es: " + ep + "<br>");
+            document.write("La velocidad es: " + vel + "<br>");
+
+            if (vel > 100) {
+                document.write("Es muy rapido")
+            }
+            else{
+                document.write("Es lento")
+            }
+        }
+    </script>
+
+    <form>
+        <input type="button" onclick="fin()" value="Llamar función">
+    </form>
+    <a href="index.html">index</a>
+
+</body>
+</html>

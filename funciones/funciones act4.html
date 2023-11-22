@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        var a;
+        var b;
+        var c;
+
+        a = prompt("Ingrese la altura");
+        b = prompt("Ingrese la base");
+        c = prompt("Ingresa la hipotenusa")
+
+        function triangulo(a, b, c) {
+            return (a + b > c) && (a + c > b) && (b + c > a);
+        }
+
+        function fin() {
+            if (triangulo(a, b, c)) {
+                document.write("es un triangulo")
+            }
+            else{
+                document.write("no es un triangulo")
+            }
+        }
+    </script>
+
+    <form>
+        <input type="button" onclick="fin()" value="Llamar función">
+    </form>
+    <a href="index.html">index</a>
+
+</body>
+</html>

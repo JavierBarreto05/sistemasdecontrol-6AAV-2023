@@ -1,0 +1,69 @@
+<html>
+<head>
+<script type="text/javascript">
+<!--
+var resistor;
+var resultXl;
+var resultXc;
+
+function calculateXl(inductor, frequency) {
+    return 2 * 3.14 * frequency * inductor;
+}
+
+function calculateXc(capacitor, frequency) {
+    return 1 / (2 * 3.14 * frequency * capacitor);
+}
+
+function calculateZ(resistance, resultXl, resultXc) {
+    function square(x) {
+        return x * x;
+    }
+    return Math.sqrt(square(resistance) + square(resultXl - resultXc));
+}
+
+function radiansToDegrees(radians) {
+    return radians * (180 / Math.PI);
+}
+
+function calculatePhi(resistance, resultXl, resultXc) {
+    return radiansToDegrees(Math.atan((resultXl - resultXc) / resistance));
+}
+
+function realPart(resultZ, resultXl, resultXc) {
+    return Math.cos(calculatePhi(resistor, resultXl, resultXc) * (Math.PI / 180)) * resultZ;
+}
+
+function imagPart(resultZ, resultXl, resultXc) {
+    return Math.sin(calculatePhi(resistor, resultXl, resultXc) * (Math.PI / 180)) * resultZ;
+}
+
+function runTest() {
+    resistor = parseFloat(prompt("Resistor value:"));
+    var inductor = parseFloat(prompt("Inductor value:"));
+    var capacitor = parseFloat(prompt("Capacitor value:"));
+    var frequency = parseFloat(prompt("Frequency value:"));
+
+    resultXl = calculateXl(inductor, frequency);
+    document.write("Xl:" + resultXl + "<br>");
+    resultXc = calculateXc(capacitor, frequency);
+    document.write("Xc:" + resultXc + "<br>");
+    var resultZ = calculateZ(resistor, resultXl, resultXc);
+    document.write("Z:" + resultZ + "<br>");
+    var resultPhi = calculatePhi(resistor, resultXl, resultXc);
+    document.write("Phi:" + resultPhi + "<br>");
+    var resultReal = realPart(resultZ, resultXl, resultXc);
+    document.write("Real part of Z:" + resultReal + "<br>");
+    var resultImag = imagPart(resultZ, resultXl, resultXc);
+    document.write("Imaginary part of Z:" + resultImag + "<br>");
+}
+//-->
+</script>
+</head>
+<body>
+<p>Result</p>
+<form>
+<input type="button" onclick="runTest()" value="Run Functions">
+</form>
+<a href="index.html">index</a>
+</body>
+</html>
